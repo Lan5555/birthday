@@ -1,0 +1,163 @@
+
+
+
+body {
+    background-image: url("zip.jpg");
+    background-size: cover;
+    height:100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    
+}
+#lan {
+  border-radius: 50px;
+  height:90%;
+  width: 110%;
+  box-shadow: 3px 5px 4px;
+  display: none;
+  animation:slideIn 0.5s ease-in-out;
+}
+
+
+@keyframes fadeIn {
+  from{
+    opacity:0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slideIn {
+    from {
+        transform: translateY(-50%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+
+
+
+
+#click {
+  background-color: red;
+  color: white;
+  border-radius:20px;
+  height: 30px;
+  box-shadow: 0 0 40px white, 0 0 60px red, 0 0 200px darkred;
+  
+  font-family: 'Playfair Display', serif;
+  
+    color:  white; /* White color with transparency */
+  
+  position: fixed;
+  bottom:0;
+  margin-bottom: 60px;
+  margin-left: 120px;
+  animation:shake 1.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-10px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(10px);
+    }
+}
+
+
+#lack{
+  position: absolute;
+  bottom: 30px;
+  right:40px;
+  font-size:15pt;
+  display: none;
+}
+
+
+
+@media only screen and (max-width: 600px){
+
+body {
+    background-image: url("zip.jpg");
+    background-size: cover;
+    height:100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    
+}
+#lan {
+  border-radius: 50px;
+  height:90%;
+  width: 102%;
+  box-shadow: 3px 0px 4px;
+  display: none;
+  animation:slideIn 0.5s ease-in-out;
+  
+}
+
+@keyframes fadeIn {
+  from{
+    opacity:0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slideIn {
+    from {
+        transform: translateY(-50%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+
+
+
+
+#click {
+  background-color: red;
+  color: white;
+  border-radius:20px;
+  height: 30px;
+  box-shadow: 0 0 40px white, 0 0 60px red, 0 0 200px darkred;
+  
+  font-family: 'Playfair Display', serif;
+  
+    color:  white; /* White color with transparency */
+  
+  position: fixed;
+  bottom:0;
+  margin-bottom: 60px;
+  margin-left: 120px;
+  animation:shake 1.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-10px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(10px);
+    }
+}
+#lack{
+  position: absolute;
+  bottom: 30px;
+  right:40px;
+  font-size:15pt;
+  display: none;
+}
+}

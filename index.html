@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+
+<style>
+
+body {
+  background-image:url("jack.jpg");
+  background-position: center;
+  background-size: cover;
+  height:100vh;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+
+  #lan {
+    width:90%;
+    height: 70%;
+    color:black;
+    background-color: darkgray;
+    box-shadow: 4px,0px,4px;
+    border-radius: 30px;
+    margin-left: 50px;
+    margin-top: 30px;
+    background-image: url(flare.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    
+  }
+  
+    #Ai {
+    text-align: right;
+   margin-right: 3px;
+   font-family: 'Playfair Display', serif;
+  
+    color:  black; /* White color with transparency */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.4), 0 0 15px rgba(255, 255, 255, 0.3); /* Multiple text shadows to create a glass-like effect */
+    opacity: 1.2; /* Adjust opacity to control transparency */
+  }
+  #me{
+    text-align: left;
+   margin-left: 3px;
+font-family: 'Playfair Display', serif;
+  
+    color:  black; /* White color with transparency */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.4), 0 0 15px rgba(255, 255, 255, 0.3); /* Multiple text shadows to create a glass-like effect */
+    opacity: 1.2; /* Adjust opacity to control transparency */
+   
+  }
+
+@media only screen and (max-width:600px){
+  #lan {
+    width:90%;
+    height: 70%;
+    color:black;
+    background-color: darkgray;
+    box-shadow: 4px,0px,4px;
+    border-radius: 30px;
+    margin-left: 20px;
+    margin-top: 20px;
+    background-image: url(flare.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  #Ai {
+    text-align: right;
+   margin-right: 3px;
+   font-family: 'Playfair Display', serif;
+  
+    color:  white; /* White color with transparency */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.4), 0 0 15px rgba(255, 255, 255, 0.3); /* Multiple text shadows to create a glass-like effect */
+    opacity: 1.2; /* Adjust opacity to control transparency */
+  }
+  #me{
+    text-align: left;
+   margin-left: 3px;
+font-family: 'Playfair Display', serif;
+  
+    color:  white; /* White color with transparency */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.4), 0 0 15px rgba(255, 255, 255, 0.3); /* Multiple text shadows to create a glass-like effect */
+    opacity: 1.2; /* Adjust opacity to control transparency */
+   
+  }
+  
+  #lop{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    display: none;
+    overflow: hidden;
+    position: absolute;
+    top:0;
+    left:0;
+  }
+}
+  #btn{
+    display:none;
+  }
+</style>
+
+
+<body>
+   <button id = 'btn'>t</button>
+<div id = "lan">
+  <br>
+  <p id = "me">
+  </p>
+  <p id = "Ai"></p>
+
+</div>
+  <video id = "lop" src = "lack.mp4" type = "video/mp4">
+</body>
+
+
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+ 
+<script>
+let audio;
+  window.onload = function (){
+   
+    Swal.fire({
+      icon:'success',
+      title:'Hello👋',
+      heightAuto:false,
+      allowOutsideClick:false,
+      showConfirmButton:true,
+    }).then((result) => {
+      if(result.isConfirmed){
+        audio = new Audio("main.mp3");
+        audio.play();
+    audio.volume = 0.5;
+    
+    audio.loop = true;
+    
+   
+    
+    
+      let NJ = document.getElementById('me');
+let Ai = document.getElementById('Ai');
+let textMe = ["Hi its me NJ👋", "We both have been working on something", "Yeah yeah right", "Okay shut up", "lets get to it"];
+let aiText = ["And I'm Lan, NJ's personal Ai", "And it's pretty exquisite", "So So Juicey you're gonna love it", "My bad", "In 3 2 1"];
+let voiceMe = ["first(2).mp3","second(2).mp3","third(2).mp3","fourth(2).mp3","fifth(2).mp3"];
+let aiVoice = ["A1.mp3","A3.mp3","A2.mp3","A4.mp3","A5.mp3"];
+
+let counter = 0;
+let counter2 = 0;
+let voicer = new Audio(voiceMe[0]);
+let voicer2 = new Audio(aiVoice[0]);
+
+let NJCount = 0;
+let AiCount = 0;
+let turn = 'NJ'; // Start with NJ's turn
+
+let intervalId = setInterval(() => {
+    if (turn === 'NJ' && NJCount < textMe.length) {
+        NJ.innerHTML += (NJCount > 0 ? '<br><br>' : '') + textMe[NJCount];
+        NJCount++;
+        
+        switch(counter){
+          case 0:
+            voicer = new Audio(voiceMe[0]);
+            voicer.play();
+            counter++;
+            break;
+          case 1:
+            voicer = new Audio(voiceMe[1]);
+            voicer.play();
+            counter++;
+            break;
+          case 2:
+            voicer = new Audio(voiceMe[2]);
+            voicer.play();
+            counter++;
+            break;
+          case 3:
+          voicer = new Audio(voiceMe[3]);
+            voicer.play();
+            counter++;
+            break;
+          case 4:
+          voicer = new Audio(voiceMe[4]);
+            voicer.play();
+            
+            break;
+        }
+        
+        
+        
+        
+        
+        turn = 'Ai'; // Switch to Ai's turn
+    } else if (turn === 'Ai' && AiCount < aiText.length) {
+        Ai.innerHTML += (AiCount > 0 ? '<br><br>' : '') + aiText[AiCount];
+        AiCount++;
+        
+        
+        switch(counter2){
+          case 0:
+            voicer2 = new Audio(aiVoice[0]);
+            voicer2.play();
+            counter2++;
+            break;
+          case 1:
+            voicer2 = new Audio(aiVoice[1]);
+            voicer2.play();
+            counter2++;
+            break;
+          case 2:
+            voicer2 = new Audio(aiVoice[2]);
+            voicer2.play();
+            counter2++;
+            break;
+          case 3:
+          voicer2 = new Audio(aiVoice[3]);
+            voicer2.play();
+            counter2++;
+            break;
+          case 4:
+          voicer2 = new Audio(aiVoice[4]);
+            voicer2.play();
+            
+            break;
+        }
+        
+        
+        
+        
+        
+        
+        
+        turn = 'NJ'; // Switch to NJ's turn
+    }
+
+    // Stop the interval when both have finished their messages
+    if (NJCount >= textMe.length && AiCount >= aiText.length) {
+        clearInterval(intervalId);
+        setTimeout(()=> {
+          
+          Swal.fire({
+          icon:'success',
+          title:'Click to continue',
+          showConfirmButton:'true',
+          allowOutsideClick: false,
+          heightAuto:false
+        }).then((result) => {
+          if(result.isConfirmed){
+            let div = document.getElementById("lan");
+            div.style.display = 'none';
+            let vid = document.getElementById("lop");
+            vid.style.display = "block";
+            audio.pause();
+            vid.play();
+            vid.addEventListener('ended', function() {
+             Swal.fire({
+                icon:'success',
+                title:'Just kidding 😁',
+                text:'Click here',
+                showConfirmButton:true,
+                allowOutsideClick:false,
+                heightAuto:false
+              }).then((result2) =>{
+                Swal.close();
+                 move();
+                
+              });
+              
+              
+            });
+          }
+        });
+          
+          
+        },2000);
+        
+    }
+}, 3000);
+
+
+
+      }
+    });
+        
+  }
+  function move(){
+    
+    
+    window.location.href = "next.html";
+  }
+  
+</script>
+</html>
